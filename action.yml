@@ -1,6 +1,12 @@
 name: 'Cloudways API Git Pull'
 description: 'Github Action to deploy your project to Cloudways.'
 inputs:
+  email:
+    description: 'Cloudways Account Email'
+    required: true
+  api-key:
+    description: 'Cloudways API Key'
+    required: true
   server-id:
     description: 'Cloudways Server ID'
     required: true
@@ -15,4 +21,4 @@ inputs:
     required: true
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
