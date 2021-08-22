@@ -45,7 +45,43 @@ You must provide all of these inputs in your Workflow file.
 - `branch-name`
 - `deploy-path`
 
-### `deploy-path`
+## Usage
+
+To get started, you might want to copy the content of the next example into `.github/workflows/cloudways-deploy.yml` and push that file to your repository.
+
+In the example, the deployment will start when you create and push a new tag. [You can change that behavior](https://docs.github.com/en/actions/reference/events-that-trigger-workflows), for example, when you create a release or a simple push to your `main` branch.
+
+```yaml
+name: Cloudways API Git Pull
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  tag:
+    name: New Tag
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Cloudways API Git Pull
+        uses: roelmagdaleno/cloudways-api-git-pull-action@stable
+        with:
+          email: ${{ secrets.CLOUDWAYS_EMAIL }}
+          api-key: ${{ secrets.CLOUDWAYS_API_KEY }}
+          server-id: ${{ secrets.CLOUDWAYS_SERVER_ID }}
+          app-id: ${{ secrets.CLOUDWAYS_APP_ID }}
+          branch-name: ${{ secrets.CLOUDWAYS_BRANCH_NAME }}
+          deploy-path: ${{ secrets.CLOUDWAYS_DEPLOY_PATH }}
+
+```
+
+## `deploy-path`
 
 The `deploy-path` input is the path your deployment will paste the project last changes.
 
@@ -61,6 +97,6 @@ As you can see, we don't need to specify the `public_html` string to the path.
 
 **It's important to finish the path with a slash.**
 
-## Usage
+## License
 
-To get started, you might want to copy the content of the next example into `.github/workflows/cloudways-deploy.yml` and push that file to your repository.
+This GitHub Action is available for use and remix under the MIT license.
