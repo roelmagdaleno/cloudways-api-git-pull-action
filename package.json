@@ -1,0 +1,17 @@
+{
+  "name": "cloudways-api-git-pull-action",
+  "version": "1.0.0",
+  "description": "Github Action to deploy your project to Cloudways.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.5.0",
+    "@actions/github": "^5.0.0",
+    "node-fetch": "^2.6.1"
+  }
+}
