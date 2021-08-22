@@ -19,6 +19,9 @@ inputs:
   deploy-path:
     description: 'The path you are deploying the changes (ignore public_html string)'
     required: true
+outputs:
+  operation:
+    description: 'The Cloudways API operation ID'
 runs:
   using: 'node12'
   main: 'dist/index.js'

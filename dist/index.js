@@ -2347,7 +2347,7 @@ async function run() {
             }
 
             core.info(`Success. Operation ID: ${ response.body.operation_id }`);
-            core.setOutput('operation_id', response.body.operation_id);
+            core.setOutput('operation', response.body.operation_id);
         });
     } catch (error) {
         core.setFailed(error.message);
