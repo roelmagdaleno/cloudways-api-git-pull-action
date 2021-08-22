@@ -1,5 +1,8 @@
 name: 'Cloudways API Git Pull'
 description: 'Github Action to deploy your project to Cloudways.'
+branding:
+  icon: 'arrow-up-right'
+  color: 'blue'
 inputs:
   email:
     description: 'Cloudways Account Email'
