@@ -78,8 +78,9 @@ jobs:
           app-id: ${{ secrets.CLOUDWAYS_APP_ID }}
           branch-name: ${{ secrets.CLOUDWAYS_BRANCH_NAME }}
           deploy-path: ${{ secrets.CLOUDWAYS_DEPLOY_PATH }}
-
 ```
+
+If you don't see your last changes in your server after run the GitHub Action then check whether your Git branch is updated with the changes.
 
 ## `deploy-path`
 
