@@ -52,19 +52,16 @@ async function run() {
         const oauthToken = await getOauthToken();
 
         if (oauthToken.error) {
-            core.error(oauthToken.error_description);
-            return;
+            throw new Error(oauthToken.error_description);
         }
 
         if (!oauthToken.access_token || oauthToken.access_token === '') {
-            core.error('The access token does not exist.');
-            return;
+            throw new Error('The access token does not exist.');
         }
 
         await deployChanges(oauthToken.access_token).then(response => {
             if (!response.ok) {
-                core.error(response.body.error_description);
-                return;
+                throw new Error(response.body.error_description);
             }
 
             core.info(`Success. Operation ID: ${ response.body.operation_id }`);
