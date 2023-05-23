@@ -1,10 +1,11 @@
 {
     "name": "cloudways-api-git-pull-action",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "description": "Github Action to deploy your project to Cloudways.",
     "main": "index.js",
+    "type": "module",
     "scripts": {
-        "prepare": "ncc build index.js --license licenses.txt"
+        "prepare": "ncc build index.js -m --license licenses.txt"
     },
     "keywords": [
         "cloudways",
@@ -13,7 +14,10 @@
         "pull",
         "action"
     ],
-    "author": "Roel Magdaleno",
+    "author": {
+        "name": "Roel Magdaleno",
+        "url": "https://roelmagdaleno.com"
+    },
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -24,10 +28,10 @@
     },
     "homepage": "https://github.com/roelmagdaleno/cloudways-api-git-pull-action#readme",
     "dependencies": {
-        "@actions/core": "^1.5.0",
-        "node-fetch": "^2.6.1"
+        "@actions/core": "^1.10.0",
+        "node-fetch": "^3.3.1"
     },
     "devDependencies": {
-        "@vercel/ncc": "^0.29.2"
+        "@vercel/ncc": "^0.36.1"
     }
 }
