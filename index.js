@@ -1,11 +1,5 @@
-import {
-    getInput,
-    info,
-    setFailed,
-    setOutput,
-} from '@actions/core';
-
-import fetch from 'node-fetch';
+const core = require('@actions/core');
+const fetch = require('node-fetch');
 
 /**
  * The Cloudways API URI.
@@ -32,8 +26,8 @@ const apiUri = 'https://api.cloudways.com/api/v1';
  */
 async function getOauthToken() {
     const body = {
-        api_key: getInput('api-key'),
-        email: getInput('email'),
+        api_key: core.getInput('api-key'),
+        email: core.getInput('email'),
     };
 
     const options = {
@@ -92,10 +86,10 @@ async function getOauthToken() {
  */
 async function deployChanges(token) {
     const body = {
-        app_id: getInput('app-id'),
-        branch_name: getInput('branch-name'),
-        deploy_path: getInput('deploy-path'),
-        server_id: getInput('server-id'),
+        app_id: core.getInput('app-id'),
+        branch_name: core.getInput('branch-name'),
+        deploy_path: core.getInput('deploy-path'),
+        server_id: core.getInput('server-id'),
     };
 
     const options = {
@@ -135,11 +129,11 @@ async function run() {
                 throw new Error(response.body.error_description);
             }
 
-            info(`Success. Operation ID: ${ response.body.operation_id }`);
-            setOutput('operation', response.body.operation_id);
+            core.info(`Success. Operation ID: ${ response.body.operation_id }`);
+            core.setOutput('operation', response.body.operation_id);
         });
     } catch (error) {
-        setFailed(error.message);
+        core.setFailed(error.message);
     }
 }
 
