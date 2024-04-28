@@ -4,7 +4,7 @@
     "description": "Github Action to deploy your project to Cloudways.",
     "main": "index.js",
     "scripts": {
-        "prepare": "ncc build index.js -m --license licenses.txt"
+        "prepare": "ncc build index.js --license licenses.txt"
     },
     "keywords": [
         "cloudways",
