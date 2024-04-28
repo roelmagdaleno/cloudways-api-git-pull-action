@@ -67,7 +67,7 @@ jobs:
 
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Cloudways API Git Pull
         uses: roelmagdaleno/cloudways-api-git-pull-action@stable
